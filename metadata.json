@@ -1,0 +1,6 @@
+{
+  "name": "K-近邻算法 (KNN) 交互实验室",
+  "description": "探索K-近邻算法的距离度量、K值动态切片、决策边界实时演播、KD-Tree空间切分与回溯、Scikit-Learn代码引擎及AI诊断系统。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
