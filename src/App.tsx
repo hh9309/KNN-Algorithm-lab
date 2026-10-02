@@ -10,6 +10,7 @@ import { CodeEngine } from './components/CodeEngine';
 import { ExportEngine } from './components/ExportEngine';
 import { KnowledgeSlices } from './components/KnowledgeSlices';
 import { AIDiagnosisModal } from './components/AIDiagnosisModal';
+import { AIFloatingSlice } from './components/AIFloatingSlice';
 import { Point2D, MetricType, WeightMode, DatasetPreset } from './types/knn';
 import { getPresetDatasets, computeCVCurve } from './utils/knnMath';
 import { Sparkles, Layers, Sliders, LineChart, BookOpen, Database } from 'lucide-react';
@@ -75,7 +76,6 @@ export default function App() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         onReset={handleReset}
-        onOpenAIDiagnose={() => setIsAIDiagnoseOpen(true)}
         pointCount={points.length}
       />
 
@@ -263,6 +263,16 @@ export default function App() {
           </div>
         )}
       </main>
+
+      {/* Module 7: AI Diagnosis Floating Slice Widget */}
+      <AIFloatingSlice
+        onOpen={() => setIsAIDiagnoseOpen(true)}
+        k={k}
+        metric={metric}
+        cvAccuracy={cvCurve.find(c => c.k === k)?.accuracy || bestAccuracy}
+        bestK={bestK}
+        pointsCount={points.length}
+      />
 
       {/* Module 7: AI Diagnosis & Q&A Modal */}
       <AIDiagnosisModal

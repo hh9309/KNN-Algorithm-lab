@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Activity,
-  Sparkles,
   BookOpen,
   Layers,
   Code,
@@ -15,7 +14,7 @@ interface HeaderProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
   onReset?: () => void;
-  onOpenAIDiagnose: () => void;
+  onOpenAIDiagnose?: () => void;
   pointCount: number;
 }
 
@@ -77,15 +76,11 @@ export const Header: React.FC<HeaderProps> = ({
           })}
         </nav>
 
-        {/* Zone 3: 1-2 primary actions */}
+        {/* Zone 3: Clean experiment sample status badge */}
         <div className="flex items-center gap-2 shrink-0">
-          <button
-            onClick={onOpenAIDiagnose}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-sky-600 hover:bg-sky-700 active:bg-sky-800 rounded-lg shadow-xs transition-colors whitespace-nowrap"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>AI 随诊诊断</span>
-          </button>
+          <span className="text-xs font-mono font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200/80 shadow-2xs">
+            {pointCount} 样本点
+          </span>
         </div>
       </div>
 
